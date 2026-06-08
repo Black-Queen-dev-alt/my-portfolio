@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Congo S Anifatou — Développeuse Full Stack | Mobile | Base de Données</title>
+  <meta name="description"
+    content="Portfolio de Congo S Anifatou, développeuse Full Stack spécialisée en développement mobile et création de bases de données." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/hero.css" />
+  <link rel="stylesheet" href="css/theme.css" />
+  <!-- Theme applied before render to avoid flash -->
+  <script src="js/theme.js"></script>
+</head>
+
+<body>
+
+  <!-- PAGE LOADER -->
+  <div class="page-loader" id="loader">
+    <div class="loader-ring"></div>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">CSA<span>.</span>dev</a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link" data-i18n="nav.accueil">Accueil</a></li>
+        <li><a href="about.html" class="nav-link" data-i18n="nav.apropos">À Propos</a></li>
+        <li><a href="portfolio.html" class="nav-link" data-i18n="nav.portfolio">Projets</a></li>
+        <li><a href="services.html" class="nav-link" data-i18n="nav.services">Services</a></li>
+        <li><a href="contact.html" class="nav-link nav-cta" data-i18n="nav.contact">Me Contacter</a></li>
+      </ul>
+      <div class="nav-controls">
+        <button class="theme-toggle" onclick="toggleTheme()" title="Mode clair" aria-label="Basculer le thème">
+          <span class="icon-moon">🌙</span>
+          <span class="icon-sun">☀️</span>
+        </button>
+        <div class="lang-selector" id="lang-selector">
+          <button class="lang-btn" onclick="toggleLangDropdown()" aria-label="Changer de langue">
+            <span class="lang-btn-flag">🇫🇷</span>
+            <span class="lang-btn-code">FR</span>
+            <span class="lang-btn-arrow">▼</span>
+          </button>
+          <div class="lang-dropdown" role="menu"></div>
+        </div>
+        <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <nav class="nav-mobile" id="nav-mobile">
+    <a href="index.html" class="nav-link" data-i18n="nav.accueil">Accueil</a>
+    <a href="about.html" class="nav-link" data-i18n="nav.apropos">À Propos</a>
+    <a href="portfolio.html" class="nav-link" data-i18n="nav.portfolio">Projets</a>
+    <a href="services.html" class="nav-link" data-i18n="nav.services">Services</a>
+    <a href="contact.html" class="nav-link" data-i18n="nav.contact">Me Contacter</a>
+    <div style="display:flex;gap:12px;padding-top:12px;border-top:1px solid var(--clr-border);margin-top:8px;">
+      <button class="theme-toggle" onclick="toggleTheme()" title="Thème">
+        <span class="icon-moon">🌙</span><span class="icon-sun">☀️</span>
+      </button>
+      <div class="lang-selector" id="lang-selector-mobile">
+        <button class="lang-btn" onclick="document.getElementById('lang-selector-mobile').classList.toggle('open')">
+          <span class="lang-btn-flag">🇫🇷</span><span class="lang-btn-code">FR</span><span class="lang-btn-arrow">▼</span>
+        </button>
+        <div class="lang-dropdown" role="menu"></div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ══ HERO ══════════════════════════════════════ -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid-lines"></div>
+    <canvas id="particles-canvas"></canvas>
+
+    <div class="container hero-grid">
+      <div class="hero-left">
+        <p class="hero-greeting" data-i18n="hero.greeting">Salut ! 👋</p>
+        
+        <h1 class="hero-title">
+          <span data-i18n="hero.intro">Je suis</span> <span class="hero-name">Anifatou Congo</span>
+        </h1>
+
+        <div class="typing-wrapper">
+          <span class="typing-text" data-typing='["Développeuse web Full Stack", "Développeuse Mobile", "Experte Base de Données"]'></span><span class="cursor"></span>
+        </div>
+
+        <p class="hero-subtitle" data-i18n="hero.subtitle">
+          Passionnée par le code et l'innovation, je conçois des solutions digitales performantes et intuitives pour vos projets les plus ambitieux.
+        </p>
+
+        <div class="hero-ctas">
+          <a href="assets/CV_Congo_S_Anifatou.pdf" download class="btn btn-primary btn-lg" data-i18n="hero.btn.cv">Télécharger mon CV</a>
+          <a href="contact.html" class="btn btn-secondary btn-lg" data-i18n="nav.contact">Me Contacter</a>
+        </div>
+
+        <div class="hero-social">
+          <a href="https://github.com/Black-Queen-dev-alt" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="social-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/anifa-congo-3a24162b9" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="social-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.238 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          </a>
+          <a href="https://wa.me/05689587" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="social-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 11.7c0 6.45-5.25 11.7-11.7 11.7-2.05 0-3.98-.53-5.65-1.45l-5.65 1.86 1.89-5.51c-1.01-1.73-1.59-3.74-1.59-5.9 0-6.45 5.25-11.7 11.7-11.7 6.45 0 11.7 5.25 11.7 11.7zm-11.7-10.5c-5.79 0-10.5 4.71-10.5 10.5 0 2.13.63 4.12 1.72 5.78l-1.12 3.27 3.35-.1.1.04c1.6.98 3.48 1.55 5.51 1.55 5.79 0 10.5-4.71 10.5-10.5 0-5.79-4.71-10.5-10.5-10.5zm6.17 14c-.23-.11-1.39-.69-1.61-.77-.21-.08-.37-.12-.52.12-.15.23-.59.77-.73.92-.12.15-.25.17-.48.06-.23-.11-.98-.36-1.87-1.15-.69-.61-1.16-1.38-1.29-1.61-.13-.23-.01-.35.1-.46.1-.1.23-.26.35-.39.11-.12.15-.21.23-.35.08-.15.04-.28-.02-.39-.06-.11-.52-1.26-.72-1.73-.19-.46-.39-.4-.52-.41-.13-.01-.29-.01-.44-.01-.15 0-.41.06-.63.29-.22.23-.85.83-.85 2.02 0 1.19.87 2.33.99 2.49.12.15 1.71 2.61 4.15 3.66.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.09.47-.07 1.39-.57 1.58-1.12.2-.55.2-1.02.14-1.12-.06-.1-.23-.17-.46-.28z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="hero-photo-wrapper">
+          <img src="assets/profile.png" alt="Congo S Anifatou" class="hero-photo" />
+          <div class="orbitals">
+            <span class="orbit-dot orbit-dot-1"><img src="assets/react.jpg" alt="React" class="orbit-dot-img"></span>
+            <span class="orbit-dot orbit-dot-2"><img src="assets/vscode.jpg" alt="VS Code" class="orbit-dot-img"></span>
+            <span class="orbit-dot orbit-dot-3"><img src="assets/mysql.jpg" alt="MySQL" class="orbit-dot-img"></span>
+            <span class="orbit-dot orbit-dot-4"><img src="assets/python.jpg" alt="Python" class="orbit-dot-img"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ EXPERTISE ══════════════════════════════════ -->
+  <section class="section" id="expertise">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag" data-i18n="expertise.tag">Mes domaines</span>
+        <h2 class="section-title" data-i18n="expertise.title">Expertise &amp; Spécialités</h2>
+        <div class="divider"></div>
+        <p class="section-subtitle" data-i18n="expertise.subtitle">Une maîtrise complète de la chaîne de développement,
+          du design à la base de données.
+        </p>
+      </div>
+
+      <div class="expertise-grid">
+        <div class="expertise-card orange reveal reveal-delay-1">
+          <span class="expertise-emoji">
+            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" class="icon"><rect x="10" y="14" width="44" height="28" rx="2"/><path d="M8 44h48M20 20h24"/></svg>
+          </span>
+          <h3 class="expertise-title" data-i18n="expertise.web.title">Développement Web</h3>
+          <p class="expertise-desc" data-i18n="expertise.web.desc">Sites web et applications SPA modernes avec les
+            meilleures technologies frontend et backend.</p>
+        </div>
+        <div class="expertise-card violet reveal reveal-delay-2">
+          <span class="expertise-emoji">
+            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" class="icon"><rect x="20" y="10" width="24" height="44" rx="4"/><path d="M32 54v2"/></svg>
+          </span>
+          <h3 class="expertise-title" data-i18n="expertise.mobile.title">Développement Mobile</h3>
+          <p class="expertise-desc" data-i18n="expertise.mobile.desc">Applications mobiles cross-platform performantes
+            et natives pour iOS et Android.</p>
+        </div>
+        <div class="expertise-card cyan reveal reveal-delay-3">
+          <span class="expertise-emoji">
+            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" class="icon"><ellipse cx="32" cy="14" rx="18" ry="8"/><path d="M14 14v16c0 4 8 8 18 8s18-4 18-8V14M14 30c0 4 8 8 18 8s18-4 18-8M14 42c0 4 8 8 18 8s18-4 18-8"/></svg>
+          </span>
+          <h3 class="expertise-title" data-i18n="expertise.db.title">Base de Données</h3>
+          <p class="expertise-desc" data-i18n="expertise.db.desc">Conception, optimisation et administration de bases de
+            données relationnelles et NoSQL.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ TECHNOLOGIES ════════════════════════════════ -->
+  <section class="section pt-0">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag" data-i18n="tech.tag">Stack Technique</span>
+        <h2 class="section-title" data-i18n="tech.title">Technologies maîtrisées</h2>
+        <div class="divider"></div>
+      </div>
+
+      <div class="tech-marquee-wrapper reveal">
+        <div class="tech-grid">
+          <div class="tech-item"><span class="icon"><img src="assets/react.jpg" alt="icone react"
+                class="tech-icon"></span>React</div>
+          <div class="tech-item"><span class="icon"><img src="assets/Vue.jpg" alt="icone vue"
+                class="tech-icon"></span>Vue.js</div>
+          <div class="tech-item"><span class="icon"><img src="assets/python.jpg" alt="icone python"
+                class="tech-icon"></span>Python</div>
+          <div class="tech-item"><span class="icon"><img src="assets/flutter.jpg" alt="icone flutter"
+                class="tech-icon"></span>Flutter</div>
+          <div class="tech-item"><span class="icon"><img src="assets/javascript.jpg" alt="icone javascript"
+                class="tech-icon"></span>JavaScript</div>
+          <div class="tech-item"><span class="icon"><img src="assets/postgresql.jpg" alt="icone postgresql"
+                class="tech-icon"></span>PostgreSQL</div>
+          <div class="tech-item"><span class="icon"><img src="assets/mongodb.jpg" alt="icone mongodb"
+                class="tech-icon"></span>MongoDB</div>
+          <div class="tech-item"><span class="icon"><img src="assets/mysql.jpg" alt="icone mysql"
+                class="tech-icon"></span>MySQL</div>
+          <div class="tech-item"><span class="icon"><img src="assets/firebase.jpg" alt="icone firebase"
+                class="tech-icon"></span>Firebase</div>
+          <div class="tech-item"><span class="icon"><img src="assets/docker.jpg" alt="icone docker"
+                class="tech-icon"></span>Docker</div>
+          <div class="tech-item"><span class="icon"><img src="assets/node.jpg" alt="icone node"
+                class="tech-icon"></span>Node.js</div>
+          <div class="tech-item"><span class="icon"><img src="assets/django.jpg" alt="icone django"
+                class="tech-icon"></span>Django</div>
+          <div class="tech-item"><span class="icon"><img src="assets/git.jpg" alt="icone git"
+                class="tech-icon"></span>Git</div>
+          <!-- Duplication pour le défilement infini fluide -->
+          <div class="tech-item"><span class="icon"><img src="assets/react.jpg" alt="icone react"
+                class="tech-icon"></span>React</div>
+          <div class="tech-item"><span class="icon"><img src="assets/Vue.jpg" alt="icone vue"
+                class="tech-icon"></span>Vue.js</div>
+          <div class="tech-item"><span class="icon"><img src="assets/python.jpg" alt="icone python"
+                class="tech-icon"></span>Python</div>
+          <div class="tech-item"><span class="icon"><img src="assets/flutter.jpg" alt="icone flutter"
+                class="tech-icon"></span>Flutter</div>
+          <div class="tech-item"><span class="icon"><img src="assets/javascript.jpg" alt="icone javascript"
+                class="tech-icon"></span>JavaScript</div>
+          <div class="tech-item"><span class="icon"><img src="assets/postgresql.jpg" alt="icone postgresql"
+                class="tech-icon"></span>PostgreSQL</div>
+          <div class="tech-item"><span class="icon"><img src="assets/mongodb.jpg" alt="icone mongodb"
+                class="tech-icon"></span>MongoDB</div>
+          <div class="tech-item"><span class="icon"><img src="assets/mysql.jpg" alt="icone mysql"
+                class="tech-icon"></span>MySQL</div>
+          <div class="tech-item"><span class="icon"><img src="assets/firebase.jpg" alt="icone firebase"
+                class="tech-icon"></span>Firebase</div>
+          <div class="tech-item"><span class="icon"><img src="assets/docker.jpg" alt="icone docker"
+                class="tech-icon"></span>Docker</div>
+          <div class="tech-item"><span class="icon"><img src="assets/node.jpg" alt="icone node"
+                class="tech-icon"></span>Node.js</div>
+          <div class="tech-item"><span class="icon"><img src="assets/django.jpg" alt="icone django"
+                class="tech-icon"></span>Django</div>
+          <div class="tech-item"><span class="icon"><img src="assets/git.jpg" alt="icone git"
+                class="tech-icon"></span>Git</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ PROJETS RÉCENTS ════════════════════════════ -->
+  <section class="section bg-surface-border-top-bottom">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag" data-i18n="projects.tag">Portfolio</span>
+        <h2 class="section-title" data-i18n="projects.title">Projets récents</h2>
+        <div class="divider"></div>
+      </div>
+
+      <div class="grid-3">
+        <div class="project-card reveal reveal-delay-1">
+          <div class="project-thumbnail">
+            <div class="project-thumbnail-inner">🛒</div>
+            <div class="project-overlay"></div>
+            <span class="badge badge-orange project-category-badge" data-i18n="filter.web">Web</span>
+          </div>
+          <div class="project-body">
+            <h4 class="project-title" data-i18n="project1.title">E-Commerce Full Stack</h4>
+            <p class="project-desc" data-i18n="project1.desc">Plateforme e-commerce complète avec gestion des stocks,
+              paiements et tableau de bord admin.</p>
+            <div class="project-tags">
+              <span class="badge badge-violet">React</span>
+              <span class="badge">Node.js</span>
+              <span class="badge badge-cyan">PostgreSQL</span>
+            </div>
+          </div>
+          <div class="project-actions">
+            <a href="portfolio.html" class="btn btn-secondary btn-sm" data-i18n="project.details">Détails</a>
+          </div>
+        </div>
+
+        <div class="project-card reveal reveal-delay-2">
+          <div class="project-thumbnail">
+            <div class="project-thumbnail-inner"><img src="assets/icons/mobile.svg" class="icon" alt="Mobile"></div>
+            <div class="project-overlay"></div>
+            <span class="badge badge-violet project-category-badge" data-i18n="filter.mobile">Mobile</span>
+          </div>
+          <div class="project-body">
+            <h4 class="project-title" data-i18n="project2.title">App de Gestion Scolaire</h4>
+            <p class="project-desc" data-i18n="project2.desc">Application mobile multiplateforme pour la gestion des
+              élèves, notes et bulletins scolaires.</p>
+            <div class="project-tags">
+              <span class="badge badge-violet">Flutter</span>
+              <span class="badge">Django</span>
+              <span class="badge badge-orange">REST API</span>
+            </div>
+          </div>
+          <div class="project-actions">
+            <a href="portfolio.html" class="btn btn-secondary btn-sm" data-i18n="project.details">Détails</a>
+          </div>
+        </div>
+
+        <div class="project-card reveal reveal-delay-3">
+          <div class="project-thumbnail">
+            <div class="project-thumbnail-inner"><img src="assets/icons/database.svg" class="icon"
+                alt="Base de Données"></div>
+            <div class="project-overlay"></div>
+            <span class="badge badge-cyan project-category-badge" data-i18n="expertise.db.title">Base de Données</span>
+          </div>
+          <div class="project-body">
+            <h4 class="project-title" data-i18n="project3.title">Système de Gestion RH</h4>
+            <p class="project-desc" data-i18n="project3.desc">Système complet de gestion des ressources humaines avec
+              base de données optimisée.</p>
+            <div class="project-tags">
+              <span class="badge badge-cyan">MySQL</span>
+              <span class="badge">Python</span>
+              <span class="badge badge-orange">Vue.js</span>
+            </div>
+          </div>
+          <div class="project-actions">
+            <a href="portfolio.html" class="btn btn-secondary btn-sm" data-i18n="project.details">Détails</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-2xl">
+        <a href="portfolio.html" class="btn btn-outline-violet btn-lg" data-i18n="projects.viewall">Voir tous les
+          projets →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CTA BAND ═══════════════════════════════════ -->
+  <section class="section">
+    <div class="container">
+      <div class="card card-glass text-center reveal card-cta">
+        <div class="card-overlay"></div>
+        <span class="section-tag" data-i18n="cta.tag">Débutons ensemble</span>
+        <h2 class="section-title my-md" data-i18n="cta.title">Votre projet, ma passion</h2>
+        <p class="max-w-500" data-i18n="cta.subtitle">Vous avez une idée ? Un projet à concrétiser ? Je suis là pour
+          transformer votre vision en réalité numérique.</p>
+        <a href="contact.html" class="btn btn-primary btn-lg">
+          <img src="assets/icons/email.svg" class="icon" alt="Démarrer"> <span data-i18n="cta.btn">Démarrer un
+            projet</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ═════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand-name">CSA.dev</div>
+          <p class="footer-tagline" data-i18n-html="footer.tagline">Développeuse Full Stack | Mobile | Base de
+            Données<br>Passionnée par la création de solutions digitales impactantes.</p>
+          <div class="footer-socials">
+            <a href="https://github.com/Black-Queen-dev-alt" target="_blank" rel="noopener noreferrer"
+              class="social-btn" title="GitHub"><svg viewBox="0 0 24 24" fill="currentColor" class="icon"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>
+            <a href="https://www.linkedin.com/in/anifa-congo-3a24162b9" target="_blank" rel="noopener noreferrer"
+              class="social-btn" title="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" class="icon"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zM7.119 20.452H3.554V9h3.565v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+            <a href="https://wa.me/05689587" target="_blank" rel="noopener noreferrer" class="social-btn"
+              title="WhatsApp"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" class="icon"><path d="M10 10h44v32H22l-12 10V10zM20 24h24M20 32h18M20 40h10"/></svg></a>
+            <a href="mailto:congoanifa7@gmail.com" class="social-btn" title="Email"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" class="icon"><rect x="10" y="16" width="44" height="32" rx="4"/><path d="M10 16l22 18 22-18"/></svg></a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-heading" data-i18n="footer.nav.title">Navigation</div>
+          <div class="footer-links">
+            <a href="index.html" class="footer-link" data-i18n="nav.accueil">Accueil</a>
+            <a href="about.html" class="footer-link" data-i18n="nav.apropos">À Propos</a>
+            <a href="portfolio.html" class="footer-link" data-i18n="nav.portfolio">Projets</a>
+            <a href="services.html" class="footer-link" data-i18n="nav.services">Services</a>
+            <a href="contact.html" class="footer-link" data-i18n="nav.contact">Me Contacter</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-heading" data-i18n="footer.contact.title">Contact</div>
+          <div class="footer-links">
+            <a href="mailto:congoanifa7@gmail.com" class="footer-link">congoanifa7@gmail.com</a>
+            <a href="https://wa.me/05689587" class="footer-link">WhatsApp: 05689587</a>
+            <a href="https://www.linkedin.com/in/anifa-congo-3a24162b9" target="_blank" rel="noopener noreferrer"
+              class="footer-link">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span data-i18n="footer.copyright">© 2026 Congo S Anifatou. Tous droits réservés.</span>
+        <span><span data-i18n="footer.madewith">Fait avec</span> <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" class="icon"><path d="M16 26c0-8 8-14 16-10 8-4 16 2 16 10 0 10-16 20-16 20S16 36 16 26z" fill="currentColor"/></svg> &amp; du <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" class="icon"><rect x="16" y="28" width="32" height="20" rx="4"/><path d="M20 28V20h24v8M44 36h8c0 6-4 10-8 10M22 18c0-4 4-8 8-8s8 4 8 8M30 12c0-2 2-4 4-4s4 2 4 4"/></svg></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    // Init theme & i18n after DOM ready
+    window.addEventListener('DOMContentLoaded', () => {
+      initTheme();
+      initI18n();
+    });
+  </script>
+</body>
+
+</html>
